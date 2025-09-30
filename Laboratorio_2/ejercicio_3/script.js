@@ -14,7 +14,9 @@ if (!regex.test(date)) {
   
   const today = new Date();
   let age = today.getFullYear() - birthdate.getFullYear();
+
+const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
  
 
-alert(`You were born on ${birthdate.toLocaleDateString()}, you are ${age} years old`);
+alert(`You were born on ${birthdate.toLocaleDateString()}, you are ${age} years old and you were born ${daysOfWeek[birthdate.getDay()]}`);
 }
