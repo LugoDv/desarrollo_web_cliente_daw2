@@ -1,15 +1,15 @@
 
 //1.Declara variables con var, let y const dentro de una función y dentro de un bloque if.
 
-function scopeTest(){
+function scopeTest() {
 
-    
-    if(name==="mosca"){
-        var name = "fabian";
-        let secondName= "lugo";
-        const age = 29;
 
-    }
+  if (name === "mosca") {
+    var name = "fabian";
+    let secondName = "lugo";
+    const age = 29;
+
+  }
 }
 
 //2.Comprueba qué variables se pueden acceder dentro y fuera de cada bloque y
@@ -43,10 +43,11 @@ const persona = {
   nombre: "Fabian",
   edad: 30
 };
+console.log(persona);
 
 persona.edad = 31;
-persona.ciudad = "Barcelona"; 
-
+persona.ciudad = "Barcelona"
+//
 console.log(persona);
 // Resultado: pero si permite modificar los atributos de un objeto
 
