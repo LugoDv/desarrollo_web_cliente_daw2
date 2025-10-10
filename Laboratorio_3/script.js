@@ -1,28 +1,35 @@
 let reload = 0
 const formUser = document.querySelector('#form-initial')
-const applyButton = document.querySelector('#apply-button')
 const body = document.querySelector('body');
 const user = document.querySelector('.userName')
 const reloadSpan = document.querySelector('#reload-count')
 const inputColor = document.querySelector('#color')
+const titleLastVisit = document.querySelector('h3')
 
 
+//Gestión de cookies
 const lastVisited = () => {
+    let now = new Date();
 
-    if (!document.cookie.includes("ultimaVisita")) {
+    if (!document.cookie.includes("lastVisit")) {
 
-        let ahora = new Date();
-        document.cookie = "ultimaVisita=" + ahora.toUTCString() + "; path=/";
+        document.cookie = "lastVisit=" + now.toUTCString() + "; path=/";
 
         console.log(document.cookie)
     }
 
-    return document.cookie("ultimaVisita");
+    document.cookie = `lastVisit=${now.toUTCString()}; path=/`;
+
+}
+
+const getCookie = (name) => {
+    const value = document.cookie.split('; ').find(cookie => cookie.startsWith(name + '='));
+    return value
 }
 
 
 
-
+//contador de recargas de la pagina
 const reloadsCount = () => {
     reload = sessionStorage.getItem('reload') ? parseInt(sessionStorage.getItem('reload')) : 0;
 
@@ -31,20 +38,28 @@ const reloadsCount = () => {
     console.log("summa countador", reload)
     return reload;
 
-
 }
 
 
 
-
-window.addEventListener('load', () => {
+//eventos de carga load, DOMContentLoaded,beforeunload
+window.addEventListener('DOMContentLoaded', () => {
     // console.log('La página y todos sus recursos se han cargado.');
 
+    const lastVisit = getCookie("lastVisit") ?? 'Welcomer'
+
+
+    lastVisited()
+
+    titleLastVisit.textContent = `${lastVisit}`
     body.style.setProperty('background-color', localStorage.getItem('color'))
     user.textContent = this.localStorage.getItem('name')
 
 
     reloadSpan.textContent = reloadsCount()
+
+    // alert(lastVisit)
+
 
 
 });
