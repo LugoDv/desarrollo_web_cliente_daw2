@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Son</title>
+  </head>
+
+  <body>
+    <main>
+      <h1>Welcome to the Son Window</h1>
+      <p>This is the content of the child window.</p>
+      <input
+        type="text"
+        name="newNickname"
+        id="newNickname"
+        placeholder="Enter new nickname"
+      />
+      <button id="sendNickname">Send Nickname to Parent</button>
+    </main>
+
+    <script>
+      const sendNicknameBtn = document.querySelector("#sendNickname");
+      const newNicknameInput = document.querySelector("#newNickname");
+
+      //window.opener.postMessage({ type: 'mensaje-hijo', data: 'Hola desde el hijo' })
+
+      sendNicknameBtn.addEventListener("click", () => {
+        const newNickname = newNicknameInput.value;
+
+        //el padre y el hijo pueden escuchar el mismo evento Message event
+        if (newNickname) {
+          window.opener.postMessage(
+            { nickname: newNickname },
+            window.location.origin
+          );
+        }
+      });
+    </script>
+  </body>
+</html>

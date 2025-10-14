@@ -1,29 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
+    <style>
+      .container {
+        margin: 10px;
+        gap: 5px;
+        font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+      }
 
-<body>
-    <div class="container">
-        <div class="userName"></div>
+      form {
+        width: 20%;
+        gap: 5px;
+        display: flex;
+        flex-direction: column;
+      }
 
-        <form action="" method="post" id="form-initial">
-            <label for="name">Name</label>
-            <input type="text" name="name" id="name">
+      .weather {
+        width: 700px;
+        height: 500px;
+        margin-top: 20px;
+      }
 
-            <label for="color">Color</label>
-            <input type="color" name="color" id="color">
+      .weather iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+    </style>
+  </head>
 
-            <button id="apply-button">apply</button>
-        </form>
-        <span id="reload-count">0</span>
-        <h3></h3>
-    </div>
+  <body>
+    <section class="container">
+      <h1>Control panel</h1>
+      <div class="userName"></div>
+
+      <form action="" method="post" id="form-initial">
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" />
+
+        <label for="color">Color</label>
+        <input type="color" name="color" id="color" />
+
+        <button id="apply-button">apply</button>
+      </form>
+      <h4 id="reload-count">Load session: 0</h4>
+      <h3></h3>
+      <button id="open-modal">Open child modal</button>
+    </section>
+    <section class="weather">
+      <iframe src="./marco_interno.html" frameborder="0"></iframe>
+    </section>
     <script src="./script.js"></script>
-</body>
-
+  </body>
 </html>
