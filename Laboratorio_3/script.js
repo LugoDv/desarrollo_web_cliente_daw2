@@ -39,6 +39,11 @@ const reloadsCount = () => {
   return reload;
 };
 
+//Manipulaciòn de cadenas
+const capitalize = (name) => {
+  console.log(name.at(0).toUpperCase() + name.slice(1).toLowerCase());
+};
+
 //valido el nombre
 const validateName = (name) => {
   // Validación: Mayúscula inicial, seguir con minúsculas/números, mínimo 5 caracteres
@@ -81,6 +86,7 @@ formUser.addEventListener("submit", (event) => {
   user.textContent = name;
   inputColor.value = color;
 
+  capitalize(name);
   // console.log(color, name)
 
   localStorage.setItem("color", color);
