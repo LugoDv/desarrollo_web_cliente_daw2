@@ -26,7 +26,7 @@ console.log(`numero de elementos de la primera fila: ${inventario[0].length}`);
 
 // 1.3 Recorrido Simple
 console.log("1.3 Recorrido simple");
-inventario.forEach((producto, index) => console.log(index, producto[0]));
+inventario.forEach((producto) => console.log(producto[0]));
 
 console.log("--------------------------------------------------------------");
 
