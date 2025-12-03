@@ -29,15 +29,16 @@ class Pais {
 
   mostrarCiudadesPorLetra() {
     this.ciudades.forEach((word) => {
-      let letters = word.split("");
-
+      
+      let letters = word.trim().split("");
+      console.log();
       letters.forEach((letter) => console.log(letter));
     });
   }
 }
 
 console.log("Instacio dos Paises\n", "--------------------------------");
-const Colombia = new Pais("Colombia", 30, 20, ["Armenia,Cali,Bogota"]);
+const Colombia = new Pais("Colombia", 30, 20, ["Armenia", "Cali", "Bogota"]);
 const España = new Pais("España", 20, 10, ["Barcelona,Madrid,Valencia"]);
 
 console.log(
