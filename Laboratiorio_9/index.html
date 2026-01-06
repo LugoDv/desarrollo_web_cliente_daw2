@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Lugo tech</title>
+    <link
+      rel="shortcut icon"
+      href="./assets/images/favicon-32x32.png"
+      type="image/x-icon"
+    />
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        <span><img src="./assets/images/logo.svg" alt="" srcset="" /></span>
+        <nav class="nav">
+          <a id="nav-inicio" href="">Inicio</a>
+          <a id="nav-cursos" href="">Cursos</a>
+          <a id="nav-contacto" href="contact.html">Contacto</a>
+          <select id="selector-idiomas">
+            <option value="es">Español</option>
+            <option value="ca">Catalán</option>
+            <option value="en">English</option>
+          </select>
+        </nav>
+      </header>
+      <div class="hero">
+        <!-- <img src="./assets/images/image-web-3-desktop.jpg" alt="" srcset="" /> -->
+        <article class="hero-text">
+          <h1 id="main-title">Mira nuestros cursos y descubre el futuro</h1>
+          <button id="hero-button">Mas cursos</button>
+        </article>
+        <div class="hero-image">
+          <img
+            src="./assets/SVG/hero2.png"
+            alt="Imagen de tecnologia"
+            srcset=""
+          />
+        </div>
+      </div>
+      <main>
+        <div class="cards">
+          <div class="card">
+            <div class="image">
+              <img src="./assets/SVG/Pacheco.svg" alt="" srcset="" />
+            </div>
+            <div class="text">
+              <span id="programming-title">Programación</span>
+              <p id="programming-desc">
+                Aprende los fundamentos de la programación y desarrolla
+                aplicaciones web modernas con las tecnologías más demandadas del
+                mercado.
+              </p>
+              <button type="button" class="card-view-btn">Ver curso</button>
+            </div>
+          </div>
+          <div class="card">
+            <div class="image">
+              <img src="./assets/SVG/Roboto.svg" alt="" srcset="" />
+            </div>
+            <div class="text">
+              <span id="ia-title">Inteligencia Artificial</span>
+              <p id="ia-desc">
+                Domina el mundo de la IA y aprende a crear soluciones
+                inteligentes que revolucionarán tu carrera profesional.
+              </p>
+              <button type="button" class="card-view-btn">Ver curso</button>
+            </div>
+          </div>
+          <div class="card">
+            <div class="image">
+              <img src="./assets/SVG/Jumping.svg" alt="" srcset="" />
+            </div>
+            <div class="text">
+              <span id="automation-title">Automatizaciones</span>
+              <p id="automation-desc">
+                Optimiza procesos y mejora la eficiencia mediante
+                automatizaciones que te permitirán ahorrar tiempo y recursos.
+              </p>
+              <button class="btn card-view-btn" type="button">Ver curso</button>
+            </div>
+          </div>
+        </div>
+        <section class="call-to-action">
+          <div class="img-action">
+            <!--6.3 implemento picture para cambiar la imagen segun la resolución -->
+            <picture>
+              <source
+                srcset="
+                  ./assets/SVG/Gemini_Generated_Image_he2o5the2o5the2o-removebg-preview.png
+                "
+                media="(max-width:900px)"
+              />
+              <source srcset="./assets/SVG/astro_cta.svg" />
+              <img src="./assets/SVG/astro_cta.svg" alt="" srcset="" />
+            </picture>
+          </div>
+          <div class="action">
+            <h2 id="cta-title">¿Listo para comenzar tu viaje tecnológico?</h2>
+            <button id="cta-button" class="btn" type="button">
+              Inscribirse ahora
+            </button>
+          </div>
+        </section>
+        <section class="contact">
+          <h2 id="contact-title">Contacto</h2>
+          <form action="#" method="post">
+            <label id="contact-name" for="name-input">Nombre:</label>
+            <input type="text" id="name-input" name="name" required />
+
+            <label id="contact-email" for="email-input"
+              >Correo Electrónico:</label
+            >
+            <input type="email" id="email-input" name="email" required />
+
+            <label id="contact-message" for="message-input">Mensaje:</label>
+            <textarea
+              id="message-input"
+              name="message"
+              rows="4"
+              required
+            ></textarea>
+
+            <button id="contact-submit" class="btn" type="submit">
+              Enviar
+            </button>
+          </form>
+        </section>
+      </main>
+      <footer>
+        <div class="footer-container">
+          <div class="footer-social">
+            <a href="#">Facebook</a>
+            <a href="#">Twitter</a>
+            <a href="#">Instagram</a>
+          </div>
+          <div class="footer-logo">
+            <img src="./assets/images/logo.svg" alt="Logo" />
+          </div>
+          <div class="footer-copy">
+            <p>&copy; 2025 Lugo Tech</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
