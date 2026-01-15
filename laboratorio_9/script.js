@@ -1,5 +1,5 @@
 const button = document.getElementById("btn-multi");
-const body = document.getElementById("main-dody");
+const bodyelement = document.getElementById("main-body");
 const textArea = document.getElementById("campo-text");
 const infoPantalla = document.getElementById("info-pantalla");
 
@@ -15,14 +15,17 @@ button.addEventListener("click", message1);
 button.addEventListener("click", message2);
 
 // Fase 2: Eventos de Teclado (8 puntos)
-textArea.addEventListener("keydown", (e) => {
+
+bodyelement.addEventListener("keyup", (e) => {
   console.log(e.key);
   console.log(e.type);
+  infoPantalla.textContent = `presionaste ${e.key}`;
+});
+
+textArea.addEventListener("keydown", (e) => {
   // 3. Restricción de caracteres con preventDefault() (4 puntos)
 
   if (!isNaN(e.key)) {
     e.preventDefault();
-  } else {
-    infoPantalla.textContent = `presionaste ${e.key}`;
   }
 });
