@@ -32,7 +32,7 @@ body {
   overflow-x: hidden;
 }
 
-/* --- NAVBAR 100% --- */
+/* --- NAVBAR  --- */
 nav {
   width: 100%;
   background-color: var(--bg-card);
@@ -156,36 +156,11 @@ main {
 .task-item:last-child {
   border-bottom: none;
 }
-
-.task-item.completed {
-  background: var(--bg-input);
-  opacity: 0.4;
-}
-
-.checkbox {
-  min-width: 20px;
-  height: 20px;
-  border: 2px solid var(--accent);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
-
-.completed .checkbox {
-  background-color: var(--accent);
-}
-
 .task-text {
   flex: 1;
   font-size: 0.95rem;
   color: var(--fg-main);
   cursor: pointer;
-}
-
-.completed .task-text {
-  text-decoration: line-through;
-  color: var(--fg-muted);
 }
 
 .btn-delete {

@@ -4,6 +4,26 @@ const $taskList = document.getElementById("task-list");
 const $taskForm = document.getElementById("task-form");
 const $taskInput = document.getElementById("task-input");
 const $pendingCount = document.getElementById("pending-count");
+const $nameDisplay = document.getElementById("username");
+
+const getUsername = () => {
+  storage = window.localStorage;
+  const regex = /\d/;
+
+  if (!storage.getItem("username")) {
+    let username = prompt("Ingrese su nombre:");
+    $nameDisplay.textContent = username;
+
+    while (!regex.test(username)) {
+      username = prompt("Nombre inválido. Ingrese solo letras:");
+    }
+
+    storage.setItem("username", username);
+    console.log(username);
+  }
+
+  $nameDisplay.textContent = storage.getItem("username");
+};
 
 const renderTask = () => {
   $taskList.innerHTML = "";
@@ -47,4 +67,5 @@ $taskForm.addEventListener("submit", (e) => {
   renderTask();
 });
 
+getUsername();
 renderTask();
