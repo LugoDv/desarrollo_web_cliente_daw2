@@ -81,6 +81,13 @@ main {
   gap: 2rem;
 }
 
+.prompt-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
 .prompt-header h2 {
   font-size: 1.4rem;
   color: var(--fg-yellow);
@@ -188,6 +195,61 @@ main {
   margin-top: 1rem;
   padding-top: 1rem;
   border-top: 1px solid var(--border);
+}
+
+/* --- QUOTE CARD --- */
+.quote-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  padding: 1.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.quote-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.quote-category {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--accent);
+}
+
+.quote-text {
+  font-size: 0.95rem;
+  color: var(--fg-yellow);
+  line-height: 1.6;
+  font-style: italic;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.quote-animate {
+  animation: fadeIn 0.3s ease forwards;
+}
+
+/* .btn-frase inherits .btn-add, add specific width override */
+.btn-frase {
+  width: auto;
+  padding: 0.5rem;
+  font-family: var(--font-main);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 /* Scrollbar Custom */

@@ -1,14 +1,62 @@
 let tasks = [{ id: 1, text: "Configurar nvm en fish init" }];
 
+const frases = [
+  ["motivacion", "Nunca te rindas, los grandes logros requieren tiempo."],
+  ["motivacion", "Cada dia es una nueva oportunidad para mejorar."],
+  ["disciplina", "La disciplina es el puente entre metas y logros."],
+  [
+    "disciplina",
+    "Haz hoy lo que otros no haran para vivir manana lo que otros no podran.",
+  ],
+  ["enfoque", "Concentra toda tu energia en lo que esta dentro de tu control."],
+  ["enfoque", "Un paso a la vez es suficiente para llegar lejos."],
+  [
+    "resiliencia",
+    "Las dificultades preparan a personas ordinarias para destinos extraordinarios.",
+  ],
+  ["resiliencia", "Caer es inevitable, levantarse es una decision."],
+  [
+    "exito",
+    "El exito no es el final, el fracaso no es fatal, lo que cuenta es el coraje de continuar.",
+  ],
+  ["exito", "No cuentes los dias, haz que los dias cuenten."],
+];
+
+const $quoteCategory = document.getElementById("quote-category");
+const $quoteText = document.getElementById("quote-text");
+const $quoteCard = document.getElementById("quote-card");
+const $btnFrase = document.querySelector(".btn-frase");
 const $taskList = document.getElementById("task-list");
 const $taskForm = document.getElementById("task-form");
 const $taskInput = document.getElementById("task-input");
 const $pendingCount = document.getElementById("pending-count");
 const $nameDisplay = document.getElementById("username");
+const $clock = document.getElementById("live-clock");
+const $infoWindow = document.getElementById("resize-info");
+
+const getRandomQuote = () => {
+  const random = Math.floor(Math.random() * frases.length);
+  const [categoria, texto] = frases[random];
+
+  $quoteCategory.textContent = `// ${categoria}`;
+  $quoteText.textContent = texto;
+
+  $quoteCard.classList.remove("quote-animate");
+  void $quoteCard.offsetWidth;
+  $quoteCard.classList.add("quote-animate");
+};
+
+const updateClock = () => {
+  const now = new Date();
+  let timeNow = now.toLocaleTimeString();
+
+  $clock.textContent = timeNow;
+  // console.log(timeNow);
+};
 
 const getUsername = () => {
   storage = window.localStorage;
-  const regex = /\d/;
+  const regex = /^[a-zA-Z]+$/;
 
   if (!storage.getItem("username")) {
     let username = prompt("Ingrese su nombre:");
@@ -61,11 +109,22 @@ $taskForm.addEventListener("submit", (e) => {
 
   if (text === "") return;
 
-  const newTask = { id: Date.now(), text: text, completed: false };
+  const newTask = { id: Date.now(), text: text };
   tasks.push(newTask);
   $taskInput.value = "";
   renderTask();
 });
 
+window.addEventListener("resize", () => {
+  let displayInfo = `Ancho: ${window.innerWidth}px, Alto: ${window.innerHeight}px`;
+
+  $infoWindow.textContent = displayInfo;
+});
+
+$btnFrase.addEventListener("click", getRandomQuote);
+
 getUsername();
+
+setInterval(updateClock, 1000);
+
 renderTask();
