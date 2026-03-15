@@ -13,7 +13,6 @@
   --font-main: "Iosevka Nerd Font", "JetBrains Mono", monospace;
 }
 
-/* Reset Total */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -52,6 +51,12 @@ nav {
   text-transform: uppercase;
   letter-spacing: 2px;
   font-size: 0.9rem;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
 .clock {
@@ -261,4 +266,16 @@ main {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: var(--accent);
+}
+
+/* light mode  */
+.light {
+  --bg-main: #f2ecbc;
+  --bg-card: #eaddb3;
+  --bg-input: #faf5e6;
+  --fg-main: #43433c;
+  --fg-yellow: #8f7339;
+  --fg-muted: #928f7d;
+  --accent: #a34e48;
+  --border: #d5cea3;
 }

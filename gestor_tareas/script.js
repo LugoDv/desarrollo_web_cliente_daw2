@@ -33,6 +33,7 @@ const $pendingCount = document.getElementById("pending-count");
 const $nameDisplay = document.getElementById("username");
 const $clock = document.getElementById("live-clock");
 const $infoWindow = document.getElementById("resize-info");
+const $modeToggle = document.getElementById("toggle-mode");
 
 const getRandomQuote = () => {
   const random = Math.floor(Math.random() * frases.length);
@@ -55,12 +56,11 @@ const updateClock = () => {
 };
 
 const getUsername = () => {
-  storage = window.localStorage;
+  let storage = window.localStorage;
   const regex = /^[a-zA-Z]+$/;
 
   if (!storage.getItem("username")) {
     let username = prompt("Ingrese su nombre:");
-    $nameDisplay.textContent = username;
 
     while (!regex.test(username)) {
       username = prompt("Nombre inválido. Ingrese solo letras:");
@@ -70,6 +70,14 @@ const getUsername = () => {
     console.log(username);
   }
 
+  if (!storage.getItem("colorSchema")) {
+    storage.setItem("colorSchema", "dark");
+  }
+
+  if (storage.getItem("colorSchema") === "light") {
+    document.body.classList.add("light");
+  }
+  $modeToggle.textContent = storage.getItem("colorSchema") === "light" ? "LIGHT" : "DARK";
   $nameDisplay.textContent = storage.getItem("username");
 };
 
@@ -102,6 +110,14 @@ const renderTask = () => {
     $taskList.appendChild($taskItem);
   });
 };
+
+$modeToggle.addEventListener("click", () => {
+  let result = document.body.classList.toggle("light");
+
+  $modeToggle.textContent = result ? "LIGHT" : "DARK";
+
+  localStorage.setItem("colorSchema", result ? "light" : "dark");
+});
 
 $taskForm.addEventListener("submit", (e) => {
   e.preventDefault();
